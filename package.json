@@ -10,7 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@clerk/clerk-js": "^5.102.1",
+=======
+>>>>>>> ecc82a0e7913eae457af66bf78453185d231fcb7
     "@clerk/express": "^1.7.42",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
