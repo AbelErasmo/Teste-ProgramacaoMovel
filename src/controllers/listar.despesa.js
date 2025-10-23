@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+=======
 import { error } from "console";
+>>>>>>> 240c3cce1eb5e559d951f5bd149d56050e727155
 import despesaModel from "../models/despesa.js";
 
 const listDespesas = async (req, res) => {
   try {
     const { userId } = await req.auth();
+<<<<<<< HEAD
+    const { despesaId } = req.par
+
+    const despesas = await despesaModel.findOne({  })
+  } catch (error) {}
+=======
 
     const despesas = await despesaModel.find({ userId })
 
@@ -14,6 +23,7 @@ const listDespesas = async (req, res) => {
     return res.status(200).json({ message: "Despesas", despesas })
   } catch (error) {}
   return res.status(500).json({ message: `Internal error server ${error}` })
+>>>>>>> 240c3cce1eb5e559d951f5bd149d56050e727155
 };
 
 export default listDespesas;
