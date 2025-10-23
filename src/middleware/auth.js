@@ -1,7 +1,7 @@
 import { clerkMiddleware } from "@clerk/express";
 
-export const requireAuth = async (req, res, next) => {
-
+const requireAuth = async (req, res, next) => {
+    
     const authorization = await req.auth()  
 
     if(!authorization || !authorization.userId){
@@ -12,4 +12,4 @@ export const requireAuth = async (req, res, next) => {
 
 }
 
-export default clerkMiddleware  
+export { clerkMiddleware, requireAuth};
