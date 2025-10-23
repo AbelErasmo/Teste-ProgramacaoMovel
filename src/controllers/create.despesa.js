@@ -9,7 +9,7 @@ const createDespesa = async (req, res) => {
     }
 
     try {
-        const { userId } = await req.auth()
+        const userId = await req.auth?.userId
         const { valor, descricao, categoria } = req.body
 
         const novadespesa = new despesaModel({
@@ -19,10 +19,12 @@ const createDespesa = async (req, res) => {
             data,
             userId
         })
+        await novadespesa.save()
+
         return res.status(201).json({ message:'Despesa criada com sucesso', novadespesa })
 
     } catch (error) {
-        return res.status(500).json({ message: `Internal error server ${error}` })   
+        return res.status(500).json({ message: `Internal error server ${error.message}` })   
     }
 
 

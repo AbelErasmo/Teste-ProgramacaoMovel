@@ -7,10 +7,12 @@ import { requireAuth } from '../middleware/auth.js'
 import { despesaValidacao } from '../middleware/despesa.validate.js'
 import deletedespesa from '../controllers/delete.despesa.js'
 
-route.post('/criardespesa',despesaValidacao, requireAuth, createDespesa )
-route.put('/despesaviaId', requireAuth, despesaEspecifica )
-route.get('/listardespesa', requireAuth, listDespesas )
-route.delete('/apagardespesa', requireAuth, deletedespesa)
+route.use(requireAuth)
+
+route.post('/criardespesa',despesaValidacao, createDespesa )
+route.put('/despesaviaId',  despesaEspecifica )
+route.get('/listardespesa',  listDespesas )
+route.delete('/apagardespesa',  deletedespesa)
 
 
 export default route
